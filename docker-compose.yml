@@ -1,0 +1,25 @@
+---
+name: http-tarpit
+services:
+  http-tarpit:
+    build: .                      #?  Build/rebuild and run
+    # image : http-tarpit:latest  #?  Reuse previously built image
+    container_name: http-tarpit
+    restart: unless-stopped
+
+    env_file: .env
+
+    ports:
+      - "${PORT:-80}:80"
+
+    environment:
+      - "TARPIT_HOST=${TARPIT_HOST:-0.0.0.0}"
+      - "TARPIT_PORT=${TARPIT_PORT:-80}"
+      - "TARPIT_ARGS=${TARPIT_ARGS:-}"
+
+    networks:
+      - http-tarpit
+
+networks:
+  http-tarpit:
+    driver: bridge
