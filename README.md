@@ -27,3 +27,10 @@ docker compose up -d && \
 sleep 1 && \
 docker compose logs
 ```
+
+## Scripts
+
+If you want to build the image before deploying you can use the scripts in the
+scripts directory to build and push as needed. If you push your images to a
+remote registry be sure to update the `REGISTRY` variable to point to the correct
+location.
