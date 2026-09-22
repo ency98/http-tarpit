@@ -1,0 +1,33 @@
+---
+# name: http-tarpit
+services:
+  http-tarpit:
+    image : http-tarpit:latest  #?  Reuse previously built image
+    restart: unless-stopped
+
+    env_file: .env
+
+    ports:
+      - "${PORT:-80}:80"
+
+    environment:
+      - "TARPIT_HOST=${TARPIT_HOST:-0.0.0.0}"
+      - "TARPIT_PORT=${TARPIT_PORT:-80}"
+      - "TARPIT_ARGS=${TARPIT_ARGS:-}"
+
+    deploy:
+      replicas: 1 #? Number of instances to run
+      restart_policy:
+        condition: on-failure
+        delay: 10s
+        max_attempts: 5
+        window: 120s
+
+    #? Create overlay network:
+    #? docker network create --scope=swarm --attachable -d overlay "http-tarpit"
+    networks:
+      - http-tarpit
+
+networks:
+  http-tarpit:
+    external: true

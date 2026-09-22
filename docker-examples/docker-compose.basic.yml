@@ -1,0 +1,16 @@
+---
+name: http-tarpit
+#? Uncomment the desired service configuration below
+
+services:
+  http-tarpit:
+    #?  Build/rebuild and run
+    # build: .
+    #?  Reuse previously built image
+    # image : http-tarpit:latest
+
+    container_name: http-tarpit
+    restart: unless-stopped
+
+    ports:
+      - "80:80"
