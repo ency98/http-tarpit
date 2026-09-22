@@ -2,6 +2,9 @@
 name: http-tarpit
 #? Uncomment the desired service configuration below
 
+#? No environment variables are need to be specified unless you are overriding
+#? the defaults as they are specified in the Dockerfile.
+
 services:
   http-tarpit:
     #?  Build/rebuild and run
