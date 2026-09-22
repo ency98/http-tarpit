@@ -3,6 +3,12 @@
 HTTP tarpit, built using FastAPI and
 [fastapi-tarpit](https://github.com/thus/fastapi-tarpit) middleware.
 
+## Screenshot
+
+<p align="center">
+<img src="./docs/images/http-tarpit.png" alt="Logs" width="75%" height="75%">
+</p>
+
 ## Build & Run Docker Image
 
 ```bash
