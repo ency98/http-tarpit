@@ -26,7 +26,7 @@ cp ./.env.example ./.env && \
 cp ./docker-compose.example.yml ./docker-compose.yml && \
 ```
 
-3. bring the container up.
+3. Bring the container up.
 
 ```bash
 docker compose up -d && \
